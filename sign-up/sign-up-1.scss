@@ -1,0 +1,283 @@
+// Variables
+$page-background-color: #FD7C94;
+$primary-color: #44E7C8;
+$secondary-color: #3A4660;
+$white-color: #F1F1F1;
+$sign-up-width: 60%;
+$sign-up-height: 80%;
+
+// Global Style
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Montserrat, sans-serif;
+  transition: all .5s;
+}
+
+html, body{
+  width: 100%;
+  height: 100%;
+  background: -moz-linear-gradient(top, $page-background-color 0%, #A42458 100%);
+  background: linear-gradient(top, $page-background-color 0%, #A42458 100%);
+}
+
+
+// Curstom style
+
+.sign-up{
+  width: $sign-up-width;
+  height: $sign-up-height;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0px 0px 15px 0px #777;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.sign-up-progress{
+  padding: 20px 10px;
+  background-color: $primary-color;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .logo{
+    width: 100%;
+    height: 35px;
+
+    h1{
+      display: inline-block;
+      font-weight: bold;
+      font-size: 23px;
+      vertical-align: top;
+    }
+
+    svg{
+      fill: $secondary-color;
+      height: auto;
+    }
+    &:hover{
+      cursor: pointer;
+    }
+  }
+
+  .message{
+    padding: 20px 10px;
+    text-align: center;
+    font-weight: bold;
+    color: #F1F1F1;
+  }
+
+  .progress-buttons{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    padding: 7px;
+
+    .button{
+      width: 8px;
+      height: 8px;
+      background-color: white;
+      border-radius: 50%;
+      margin: 0 7px;
+
+      &:hover{
+        cursor: pointer;
+      }
+
+      & + .active{
+        &::before{
+          content: '';
+          width: 12px;
+          height: 12px;
+          position: absolute;
+          margin-top: -2px;
+          border-radius: 50%;
+          background-color: #666;
+        }
+        &::after{
+          content: '';
+          width: 8px;
+          height: 8px;
+          position: absolute;
+
+          margin-left: 2px;
+          border-radius: 50%;
+          background-color: white;
+        }
+      }
+    }
+  }
+
+
+}
+
+.sign-up-form{
+  background-color: $secondary-color;
+  flex: 1;
+
+  .buttons{
+    display: flex;
+    float: right;
+    margin: 20px 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 2px 0px #212121;
+
+    .button{
+      font-size: 12px;
+      text-align: center;
+      padding: 5px 7px;
+      width: 80px;
+      background-color: lighten($secondary-color, 20%);
+      color: $white-color;
+      font-weight: bold;
+
+      &:hover{
+        cursor: pointer;
+      }
+    }
+    .active {
+      background-color: $primary-color;
+      color: lighten($secondary-color, 20%);
+    }
+  }
+
+  .container{
+    margin: auto;
+    margin-top: 20%;
+    width: 350px;
+
+    .title{
+      font-size: 30px;
+      color: darken($secondary-color, 20%);
+
+      em{
+        color: lighten($secondary-color, 20%);
+        font-size: 25px;
+        font-style: normal;
+
+        &:hover{
+          cursor: pointer;
+        }
+      }
+      .sign-in-button{
+        border-bottom-color: lighten($secondary-color, 20%);
+      }
+      .sign-up-button{
+        padding: 2px;
+        border-bottom: 2px solid;
+        color: $white-color;
+        border-bottom-color: $primary-color;
+      }
+    }
+
+    .form{
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+
+
+      .field{
+        margin: 10px 0;
+        font-size: 12px;
+      }
+      .input{
+        display: flex;
+        flex-direction: column;
+        label{
+          color: $white-color;
+          text-transform: capitalize;
+          font-weight: bold;
+        }
+        input{
+          font-weight: bold;
+          background-color: transparent;
+          border: none;
+          padding: 7px 0;
+          border-bottom: 1px solid;
+          border-bottom-color: lighten($secondary-color, 20%);
+          font-size: 12px;
+          color: lighten($secondary-color, 20%);;
+          &:focus{
+            border-bottom: 2px solid;
+            color: $white-color;
+            border-bottom-color: $primary-color;
+          }
+        }
+      }
+      .checkbox{
+        input{ display: none;}
+
+        label{
+          vertical-align: top;
+          font-weight: bold;
+          color: lighten($secondary-color, 20%);
+
+          em{
+            border-bottom: 1px solid $primary-color;
+            font-style: normal;
+            &:hover{ cursor: pointer; }
+          }
+
+          &::before{
+            content: '';
+            top: 5px;
+            margin-right: 10px;
+            position: relative;
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border: 1px solid lighten($secondary-color, 20%);
+            border-radius: 3px;
+          }
+        }
+
+        input[type=checkbox]:checked + label:before{
+          background-color: $primary-color;
+        }
+      }
+
+      .submit{
+        & > * {
+          display: inline;
+          vertical-align: middle;
+        }
+        button{
+          border: none;
+          padding: 5px 14px;
+          border-radius: 14px;
+          margin-right: 10px;
+          background-color: $primary-color;
+          &:hover{
+            box-shadow: 0px 0px 5px 0px #111;
+            cursor: pointer;
+          }
+        }
+        p{
+          color: darken($secondary-color, 20%);
+          border-bottom: 1px solid $primary-color;
+          &:hover{
+            cursor: help;
+          }
+        }
+      }
+
+    }
+
+  }
+
+}
